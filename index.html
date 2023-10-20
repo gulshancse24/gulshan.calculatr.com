@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator || By Gulshan Prajapati</title>
+    <title>calculator</title>
 </head>
 <style>
     /* input {
@@ -154,7 +154,12 @@
 <script>
     var val = document.getElementById("input");
     function AT(v) {
-        val.value += v;
+        if (val.value == 0) {
+            val.value = v;
+        }
+        else {
+            val.value += v;
+        }
     }
     function Clear() {
         val.value = "0";
