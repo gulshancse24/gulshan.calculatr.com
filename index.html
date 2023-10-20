@@ -153,26 +153,27 @@
 </body>
 <script>
     var val = document.getElementById("input");
+
     function AT(v) {
-        if (val.value == 0) {
+        if (val.value == "0") {
             val.value = v;
-        }
-        else {
+        } else {
             val.value += v;
         }
     }
-function calculateResult() {
-            var displayValue = document.getElementById('display').value;
-            try {
-                document.getElementById('display').value = eval(displayValue);
-            } catch (error) {
-                document.getElementById('display').value = 'Error';
-            }
+
+    function calculateResult() {
+        try {
+            val.value = eval(val.value);
+        } catch (error) {
+            val.value = 'Error';
         }
+    }
+
     function Clear() {
         val.value = "0";
-        // val.value = val.value.substr(0, val.value.length - 1);
-    }
+    }
 </script>
+
 
 </html>
