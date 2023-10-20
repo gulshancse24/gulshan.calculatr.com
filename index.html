@@ -138,7 +138,7 @@
                 <button onclick="AT(3)" class="button">3</button>
             </td>
             <td rowspan="2">
-                <button onclick="Execute()" class="button">=</button>
+                <button onclick="calculateResult()" class="button">=</button>
             </td>
         </tr>
         <tr>
@@ -161,14 +161,18 @@
             val.value += v;
         }
     }
+function calculateResult() {
+            var displayValue = document.getElementById('display').value;
+            try {
+                document.getElementById('display').value = eval(displayValue);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
     function Clear() {
         val.value = "0";
         // val.value = val.value.substr(0, val.value.length - 1);
-    }
-    function Execute() {
-        val.value = eval(val.value);
-    }
-
+    }
 </script>
 
 </html>
