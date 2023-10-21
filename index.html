@@ -93,7 +93,7 @@
                 <button onclick="Clear()" class="button">c</button>
             </td>
 <td>
-                <button onclick="Backspace()" class="button">&#9224;</button>
+                <button onclick="Backspace()" class="button">⌫</button>
             </td>
             <td>
                 <button onclick="AT('/')" class="button">/</button>
@@ -175,6 +175,10 @@
         }
     }
 
+function backspace() {
+            var currentDisplay = document.getElementById('display').value;
+            document.getElementById('display').value = currentDisplay.slice(0, -1);
+        }
     function Clear() {
         val.value = "0";
     }
