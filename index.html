@@ -1,181 +1,191 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>calculator</title>
-
 </head>
-
 <style>
-
     /* input {
-
         width: 100%;
-
         height: 100%;
-
         padding: 0px;
-
         border: 0px;
-
         margin: 0px;
-
         border: solid 1px cyan;
-
         background-color: aqua;
-
         box-shadow: 0px 0px 2px cyan;
-
     } */
-
-
-
-
-
     .button1 {
-
         /* position: relative; */
-
-        background-color: #04AA6D;
-
+        background-color: #ffffff;
         border: none;
-
         font-size: 28px;
-
-        color: #FFFFFF;
-
+        color: #000000;
         /* padding: 20px; */
-
         user-select: none;
-
         width: 99.55%;
-
+        border-radius: 15px 15px 15px 15px;
+        margin-bottom: 10px;
         height: 100%;
-
         text-align: center;
-
         cursor: pointer;
-
-        box-shadow: 0px 0px 10px #029660;
-
+        box-shadow: 0px 0px 10px #000000;
     }
-
-
 
     .button {
-
         position: relative;
-
-        background-color: #04AA6D;
-
+        background-color: #0c00f0;
         border: none;
-
         font-size: 28px;
-
+        border-radius: 15px 15px 15px 15px;
         color: #FFFFFF;
-
         /* padding: 20px; */
-
         width: 100%;
-
-        box-shadow: 0px 0px 10px #029660;
-
+        box-shadow: 0px 0px 10px #000000;
         height: 100%;
-
         text-align: center;
-
         -webkit-transition-duration: 0.4s;
-
         /* Safari */
-
         transition-duration: 0.4s;
-
         text-decoration: none;
-
         overflow: hidden;
-
         cursor: pointer;
-
         user-select: none;
-
     }
-
-
 
     table {
-
         height: 600px;
-
-        background-color: #00e490;
-
+        background-color: #0013e4;
+        border-radius: 15px 15px 15px 15px;
         box-shadow: 0px 0px 20px gray;
-
     }
-
-
 
     .button:after {
-
+        border-radius: 15px 15px 15px 15px;
         content: "";
-
         background: #90EE90;
-
         display: block;
-
         position: absolute;
-
         padding-top: 300%;
-
         padding-left: 350%;
-
         margin-left: -20px !important;
-
         margin-top: -120%;
-
         opacity: 0;
-
-        transition: all 0.8s
-
+        transition: cubic-bezier(0.05, 0, 1, 0.87) .8s;
     }
-
-
 
     .button:active:after {
-
         padding: 0;
-
         margin: 0;
-
         opacity: 1;
-
         transition: 0s
-
     }
 
+    .bg-red {
+        /* background-color: rgba(222, 0, 0, 0.081); */
+        width: 100%;
+        height: 120px;
+        display: inline-table;
+        /* pointer-events: stroke; */
+        float: left;
+        /* margin-top: 20px; */
+        user-select: none;
+        border-radius: 15px 15px 15px 15px;
+        margin-bottom: -120px;
+        position: relative;
+    }
+
+    /* Define the styles for the shining div */
+    .bg-red {
+        /* width: 200px; */
+        /* height: 200px; */
+        position: relative;
+        animation: shine 0.8s infinite;
+        transition: 0.2s ease;
+        background-image: linear-gradient(8deg, #0f00e491, #00000001, #0008e491);
+    }
+
+    /* Create the shining animation */
+    @keyframes shine {
+        0% {
+            background-image: linear-gradient(8deg, #0f00e491, #00000038, #0008e491);
+            box-shadow: 0 0 10px #68bda968;
+
+        }
+
+        10% {
+            background-image: linear-gradient(8deg, #0f00e491, #00000001, #0008e491);
+            box-shadow: 0 0 10px #68bda968;
+
+        }
+
+
+        25% {
+            background-image: linear-gradient(8deg, #0f00e491, #00000001, #0008e491);
+            box-shadow: 0 0 10px #68bda968;
+            transition: 0.1s;
+        }
+
+        55% {
+
+            background-image: linear-gradient(8deg, #00000002, #0f00e491, #00000002);
+            box-shadow: 0 0 10px #68bda968;
+        }
+
+        100% {
+            background-image: linear-gradient(8deg, #00000002, #0f00e491, #00000002);
+            box-shadow: 0 0 10px #68bda968;
+        }
+    }
+
+    .cpy {
+        position: absolute;
+        right: 0px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        width: 10%;
+        background-color: tomato;
+        animation: blink 2s infinite;
+        cursor: pointer;
+    }
+
+    @keyframes blink {
+        0% {
+            text-shadow: 0px 0px 20px gray;
+            background-color: #1100fd;
+            color: whitesmoke;
+        }
+
+        50% {
+            text-shadow: 0px 0px 10px gray;
+            background-color: tomato;
+            color: black;
+        }
+
+        100% {
+            text-shadow: 0px 0px 20px gray;
+            color: whitesmoke;
+            background-color: #1100fd;
+
+        }
+    }
 </style>
 
 
 
 <body>
 
-    <table border="0" width="50%" height="100px" style="text-align: center;" align="center" cellspacing="0">
-
+    <table border="0" width="50%" style="text-align: center;" align="center" cellspacing="0">
         <tr>
-
             <td colspan="4">
-
+                <box class="bg-red">
+                    <button class="cpy" id="copyButton">Copy</button>
+                </box>
                 <input type="text" id="input" value="0" class="button1">
-
             </td>
-
         </tr>
 
         <tr>
@@ -185,9 +195,9 @@
                 <button onclick="Clear()" class="button">c</button>
 
             </td>
-<td>
+            <td>
 
-                <button onclick="backspace()" class="button">⌫</button>
+                <button onclick="backspace()" class="button" style="padding: 0px;">⌫</button>
 
             </td>
 
@@ -203,7 +213,7 @@
 
             </td>
 
-            
+
 
         </tr>
 
@@ -254,7 +264,7 @@
                 <button onclick="AT(6)" class="button">6</button>
 
             </td>
-<td rowspan="2">
+            <td rowspan="2">
 
                 <button onclick="AT('+')" class="button">+</button>
 
@@ -282,7 +292,7 @@
 
             </td>
 
-          </td>
+            </td>
 
         </tr>
 
@@ -299,11 +309,11 @@
                 <button onclick="AT('.')" class="button">.</button>
 
             </td>
-      <td>
+            <td>
 
                 <button onclick="calculateResult()" class="button">=</button>
 
-        
+
 
         </tr>
 
@@ -315,9 +325,16 @@
     var val = document.getElementById("input");
 
     function AT(v) {
-        if (val.value == "0") {
-            val.value = v;
-        } else {
+        if (v == '.') {
+
+            if (val.value == 0) {
+                val.value = 0 + v;
+            }
+            else {
+                val.value += v;
+            }
+        }
+        else {
             val.value += v;
         }
     }
@@ -326,22 +343,47 @@
         try {
             val.value = eval(val.value);
         } catch (error) {
-            val.value = 'Error';
+            val.value = 'Error Please enter again';
+            if (val.value == 'Error Please enter again' || val.value == 'undefined') {
+                setTimeout(function () {
+                    val.value = 0;
+                }, 1000);
+            }
         }
     }
 
-function backspace() {
-            var currentDisplay = document.getElementById('input').value;
-            document.getElementById('input').value = currentDisplay.slice(0, -1);
+    function backspace() {
+        var currentDisplay = document.getElementById('input').value;
+        document.getElementById('input').value = currentDisplay.slice(0, -1);
+        if (val.value == "") {
+            val.value = 0;
         }
-    function Clear() {
-        val.value = "0";
     }
+    function Clear() {
+        val.value = 0;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const copyButton = document.getElementById("copyButton");
+        const inputElement = document.getElementById("input");
+
+        copyButton.addEventListener("click", function () {
+            inputElement.select();
+            inputElement.setSelectionRange(0, 99999);
+
+            document.execCommand("copy");
+
+            inputElement.blur();
+
+            copyButton.innerText = "Copied!";
+            setTimeout(function () {
+                copyButton.innerText = "Copy";
+            }, 1000);
+        });
+    });
 </script>
 
-
-
+<style>
+</style>
 
 </html>
-
-                
